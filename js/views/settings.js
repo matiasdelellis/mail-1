@@ -22,18 +22,24 @@ define(function(require) {
 		template: Handlebars.compile(SettingsTemplate),
 		templateHelpers: function() {
 			return {
-				addAccountUrl: OC.generateUrl('apps/mail/#setup')
+				addAccountUrl: OC.generateUrl('apps/mail/#setup'),
+				keyboardShortcutUrl: OC.generateUrl('apps/mail/#keyboardShortcut')
 			};
 		},
 		regions: {
 			accountsList: '#settings-accounts'
 		},
 		events: {
-			'click #new_mail_account': 'addAccount'
+			'click #new_mail_account': 'addAccount',
+			'click #keyboard_shortcuts': 'showKeyboardShortcuts'
 		},
 		addAccount: function(e) {
 			e.preventDefault();
 			Radio.navigation.trigger('setup');
+		},
+		showKeyboardShortcuts: function(e) {
+			e.preventDefault();
+			Radio.navigation.trigger('keyboardshortcuts');
 		}
 	});
 });
