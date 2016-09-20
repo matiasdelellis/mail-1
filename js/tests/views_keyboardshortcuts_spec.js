@@ -18,25 +18,26 @@
  */
 
 
-define(['views/settings', 'views/helper'], function(SettingsView) {
+define(['views/keyboardshortcuts', 'views/helper'], function(KeyboardShortcutsView) {
 
-	describe('SettingsView', function () {
+	describe('KeyboardShortcutsView', function () {
 
-		var settingsview;
+		var keyboardshortcutsview;
 
 		beforeEach(function () {
-			settingsview = new SettingsView({});
+			keyboardshortcutsview = new KeyboardShortcutsView({});
 		});
 
 		it('has the account and shortcut functions', function () {
-			    expect(typeof settingsview.showKeyboardShortcuts).toBe("function");
-			    expect(typeof settingsview.addAccount).toBe("function")
+			    expect(typeof keyboardshortcutsview.showKeyboardShortcuts).toBe("function");
+			    expect(typeof keyboardshortcutsview.addAccount).toBe("function")
 		});
 
 		it('produces the correct HTML', function () {
-			settingsview.render();
+			keyboardshortcutsview.render();
 
-			html = settingsview.el.innerHTML.trim();
+
+			html = keyboardshortcutsview.el.innerHTML.trim();
 			expected_html = '<div id="mailsettings">\n\t<ul id="settings-accounts" class="mailaccount-list">\n\t</ul>\n' +
 				'\t<a id="new_mail_account" class="button new-button" href="apps/mail/#setup">Add mail account</a>\n\n' +
 				'\t<p><a id="keyboard_shortcuts" href="apps/mail/#keyboardShortcut">Keyboard shortcuts</a></p>\n' +
