@@ -49,8 +49,10 @@ define(function(require) {
 			}
 
 			var _this = this;
+			var dragScope = 'folder-' + this.model.folder.account.get('accountId');
 			this.$el.draggable({
 				appendTo: '#content-wrapper',
+				scope: dragScope,
 				helper: function() {
 					var el = $('<div class="icon-mail"></div>');
 					el.data('folderId', require('state').currentFolder.get('id'));
@@ -152,9 +154,6 @@ define(function(require) {
 					Radio.ui.trigger('error:show', t('mail', 'Error while deleting message.'));
 				}
 			});
-		},
-		onDrag: function(event) {
-			console.log(event);
 		}
 	});
 });
